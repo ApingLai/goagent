@@ -93,7 +93,6 @@ class RC4Socket(object):
         self.__send_cipher = RC4Cipher(key)
 
     def __getattr__(self, attr):
-        print (self, attr)
         if attr not in ('__sock', '__cipher'):
             return getattr(self.__sock, attr)
 
@@ -213,6 +212,7 @@ def main():
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     server = TCPServer(('', 3389), password='123456')
     server.serve_forever()
+
 
 if __name__ == '__main__':
     main()
